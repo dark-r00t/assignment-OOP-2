@@ -40,5 +40,10 @@
 1. You can select any *tsv, *json, or *html file to load; but, you can only select one file.
 ---
 
+## WARNING
+#### This used to work, and may still work on Windows 10...
+#### However, I do not use a Windows machine anymore and cannot verify that.
+
+---
 ## License & Copyright ##
 #### Copyright 2021 Jan Darge
