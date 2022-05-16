@@ -1,0 +1,113 @@
+@startuml
+
+class InventoryManager {
+    + main()
+    + start()
+}
+
+class Item {
+    + serial_number : String
+    + name : String
+    + value : String
+    --
+    + getSerial_number()
+    + setSerial_number()
+    + getName()
+    + setName()
+    + getValue()
+    + setValue()
+    + Item()
+    --
+    + toString()
+}
+
+class SceneController {
+    + userHelp()
+}
+
+class MainWindowController {
+    + itemsTableView : TableView<Item>
+    + itemsSerialNumberColumn : TableColumn<Item, String>
+    + itemsNameColumn : TableColumn<Item, String>
+    + itemsValueColumn : TableColumn<Item, String>
+    + serialNumberTextField : TextField
+    + itemNameTextField : TextField
+    + priceTextField : TextField
+    + searchTextField : TextField
+    + items : LinkedList<Item>
+    --
+    + newButtonClicked()
+    + loadButtonClicked()
+    + saveAsButtonClicked()
+    + quitButtonClicked()
+    + addItemButtonClicked()
+    - setNewItem()
+    + deleteSelectedItemButtonClicked()
+    + keyPressFilterList()
+    + changeSelectedSerialNumber()
+    + changeSelectedItemName()
+    + changeSelectedItemValue()
+    + checkTableView()
+    + refreshDisplay()
+    + fullDisplay()
+    + clearDisplay()
+    + clearEverything()
+}
+
+class GeneralUtility {
+    + userDirec()
+    + addItem()
+    + addItemInit()
+    + deleteItem()
+    + updateItemSerialNumber()
+    + updateItemName()
+    + updateItemValue()
+    + nameCheck()
+    + priceCheck()
+    + tryDoubleParse()
+    + priceFormat()
+    + checkSerialNumberInit()
+    + checkSerialNumber()
+    + priceDeformat()
+    + searchForItem()
+}
+
+class FileHandler {
+    + createTempFolder()
+    + getExtension()
+    + load()
+    + save()
+    + saveSelectedFiles()
+}
+
+class FileHTML {
+    + loadHTML()
+    + reformatInputHTML()
+    + createItemsHTML()
+    + htmlRemoveExtra()
+    + saveHTML()
+}
+
+class FileJSON {
+    + loadJSON()
+    + saveJSON()
+}
+
+class FileTSV {
+    + loadTSV()
+    + saveTSV()
+    + removeNewLine()
+}
+
+javajfx.org.Application <|-- InventoryManager
+InventoryManager -- MainWindowController
+MainWindowController - GeneralUtility
+MainWindowController -- FileHandler
+MainWindowController o- Item
+FileHandler -- GeneralUtility
+FileHandler - FileTSV
+FileHandler - FileJSON
+FileHandler - FileHTML
+GeneralUtility -- SceneController
+
+@enduml

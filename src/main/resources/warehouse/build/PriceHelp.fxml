@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="275.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <Label layoutX="60.0" layoutY="14.0" text="You have entered an invalid price!" textAlignment="CENTER">
+        <font>
+            <Font size="20.0" />
+        </font>
+    </Label>
+    <Label layoutX="85.0" layoutY="72.0" text="CORRECT FORMAT EXAMPLES :">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label layoutX="177.0" layoutY="138.0" text="10.00">
+        <font>
+            <Font size="19.0" />
+        </font>
+    </Label>
+   <Label layoutX="196.0" layoutY="176.0" text="5">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Label>
+</AnchorPane>

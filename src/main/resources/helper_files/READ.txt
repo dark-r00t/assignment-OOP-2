@@ -1,0 +1,4 @@
+These were included to help understand file formatting, as well as to alleviate and improve testing.
+
+Note:
+The html file requires a very specific format.

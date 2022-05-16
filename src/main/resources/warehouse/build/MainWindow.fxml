@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
+            prefWidth="850.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="warehouse.build.MainWindowController">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <Menu mnemonicParsing="false" text="File">
+                <MenuItem mnemonicParsing="false" onAction="#newButtonClicked" text="New"/>
+                <MenuItem mnemonicParsing="false" onAction="#loadButtonClicked" text="Load..."/>
+                <MenuItem mnemonicParsing="false" onAction="#saveAsButtonClicked" text="Save As..."/>
+                <SeparatorMenuItem mnemonicParsing="false"/>
+                <MenuItem mnemonicParsing="false" onAction="#quitButtonClicked" text="Quit"/>
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <TableView fx:id="itemsTableView" prefHeight="367.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn id="TV_value" fx:id="itemsValueColumn" minWidth="0.0"
+                             onEditCommit="#changeSelectedItemValue" prefWidth="138.0" text="Value"/>
+                <TableColumn id="TV_serialNumber" fx:id="itemsSerialNumberColumn"
+                             onEditCommit="#changeSelectedSerialNumber" prefWidth="129.0" text="Serial Number"/>
+                <TableColumn id="TV_itemName" fx:id="itemsNameColumn" onEditCommit="#changeSelectedItemName"
+                             prefWidth="582.0" text="Item Name"/>
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <VBox prefHeight="45.0" prefWidth="772.0" BorderPane.alignment="CENTER">
+            <HBox prefHeight="45.0" prefWidth="784.0" spacing="17.0">
+                <padding>
+                    <Insets left="10.0" right="5.0"/>
+                </padding>
+                <Button mnemonicParsing="false" onAction="#addItemButtonClicked" prefHeight="25.0" prefWidth="150.0"
+                        text="Add New Item">
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="7.0" top="10.0"/>
+                    </HBox.margin>
+                </Button>
+                <TextField fx:id="serialNumberTextField" promptText="Item Serial Number">
+                    <HBox.margin>
+                        <Insets top="10.0"/>
+                    </HBox.margin>
+                </TextField>
+                <TextField fx:id="itemNameTextField" promptText="Item Name">
+                    <HBox.margin>
+                        <Insets top="10.0"/>
+                    </HBox.margin>
+                </TextField>
+                <TextField fx:id="priceTextField" promptText="Item Price">
+                    <HBox.margin>
+                        <Insets top="10.0"/>
+                    </HBox.margin>
+                </TextField>
+                <Button mnemonicParsing="false" onAction="#deleteSelectedItemButtonClicked" prefHeight="25.0"
+                        prefWidth="150.0" text="Delete An Item">
+                    <HBox.margin>
+                        <Insets top="10.0"/>
+                    </HBox.margin>
+                </Button>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+                <TextField fx:id="searchTextField" alignment="CENTER" onKeyTyped="#keyPressFilterList" prefHeight="25.0"
+                           prefWidth="481.0" promptText="Search For item by typing here...">
+                    <HBox.margin>
+                        <Insets bottom="10.0" left="184.0"/>
+                    </HBox.margin>
+                </TextField>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
